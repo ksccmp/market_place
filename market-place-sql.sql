@@ -26,5 +26,9 @@ alter database marketplace default character set utf8;
 alter table product convert to character set utf8;
 alter table user convert to character set utf8;
 
+select * from user;
+
+delete from user;
+
 drop table product;
 drop table user;
