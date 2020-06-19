@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="market.place.product">
 	<select id="selectAll" resultType="product">
-		select * from product;
+		select * from product where count != 0
 	</select>
 	
 	<insert id="insert" parameterType="product">
-		insert into product(image, userid, name, description, price, count, regdate) values (#{image}, #{userid}, #{name}, #{description}, #{price}, #{count}, date_format(#{regdate}, '%Y-%m-%d))
+		insert into product(image, userid, name, description, price, count, regdate) values (#{image}, #{userid}, #{name}, #{description}, #{price}, #{count}, current_timestamp())
 	</insert>
 </mapper>

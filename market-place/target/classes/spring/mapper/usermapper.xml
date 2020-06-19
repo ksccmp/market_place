@@ -6,4 +6,8 @@
 	<insert id="insert" parameterType="user">
 		insert into user(userid, password, name, phone) values (#{userid}, #{password}, #{name}, #{phone})
 	</insert>
+	
+	<select id="selectByUserid" parameterType="string" resultType="user">
+		select * from user where userid = #{userid}
+	</select>
 </mapper>
