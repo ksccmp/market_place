@@ -14,27 +14,27 @@
 		<table>
 			<tr>
 				<td>물품 이미지</td>
-				<td><input type="text" name="image"></td>
+				<td><input type="text" name="image" required="required"></td>
 			</tr>
 			
 			<tr>
 				<td>물품 이름</td>
-				<td><input type="text" name="name"></td>
+				<td><input type="text" name="name" required="required"></td>
 			</tr>
 			
 			<tr>
 				<td>물품 세부정보</td>
-				<td><input type="text" name="description"></td>
+				<td><input type="text" name="description" required="required"></td>
 			</tr>
 			
 			<tr>
 				<td>물품 가격</td>
-				<td><input type="number" name="price"></td>
+				<td><input type="number" name="price" required="required"></td>
 			</tr>
 			
 			<tr>
 				<td>물품 갯수</td>
-				<td><input type="number" name="count3"></td>
+				<td><input type="number" name="count" required="required"></td>
 			</tr>
 		</table>
 		
@@ -45,4 +45,10 @@
 	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script>
+	<c:if test="${empty sessionScope.user }">
+		alert("로그인을 해주세요.");
+		history.go(-1);
+	</c:if>
+</script>
 </html>

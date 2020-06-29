@@ -22,6 +22,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 	
 	@Override
 	public int insert(Product product) {
-		return session.insert(ns + "insert");
+		return session.insert(ns + "insert", product);
 	}
 }

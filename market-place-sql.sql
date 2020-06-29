@@ -25,10 +25,13 @@ set charset utf8;
 alter database marketplace default character set utf8;
 alter table product convert to character set utf8;
 alter table user convert to character set utf8;
+set sql_safe_updates=0;
 
 select * from user;
+select * from product;
 
 delete from user;
+delete from product;
 
 drop table product;
 drop table user;
