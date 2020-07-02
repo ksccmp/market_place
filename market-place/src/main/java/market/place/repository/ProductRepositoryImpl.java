@@ -21,7 +21,22 @@ public class ProductRepositoryImpl implements ProductRepository {
 	}
 	
 	@Override
+	public Product selectById(int id) {
+		return session.selectOne(ns + "selectById", id);
+	}
+	
+	@Override
 	public int insert(Product product) {
 		return session.insert(ns + "insert", product);
+	}
+	
+	@Override
+	public int delete(Product product) {
+		return session.delete(ns + "delete", product);
+	}
+	
+	@Override
+	public int updateByCount(Product product) {
+		return session.update(ns + "updateByCount", product);
 	}
 }

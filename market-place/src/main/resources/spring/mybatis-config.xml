@@ -6,10 +6,12 @@
 	<typeAliases>
 		<typeAlias type="market.place.dto.Product" alias="product"/>
 		<typeAlias type="market.place.dto.User" alias="user"/>
+		<typeAlias type="market.place.dto.Purchase" alias="purchase"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="spring/mapper/productmapper.xml" />
 		<mapper resource="spring/mapper/usermapper.xml" />
+		<mapper resource="spring/mapper/purchasemapper.xml"/>
 	</mappers>
 </configuration>

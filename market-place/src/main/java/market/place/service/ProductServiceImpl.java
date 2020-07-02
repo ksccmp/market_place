@@ -21,8 +21,25 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public Product selectById(int id) {
+		return pRepo.selectById(id);
+	}
+	
+	@Override
 	@Transactional
 	public int insert(Product product) {
 		return pRepo.insert(product);
+	}
+	
+	@Override
+	@Transactional
+	public int delete(Product product) {
+		return pRepo.delete(product);
+	}
+	
+	@Override
+	@Transactional
+	public int updateByCount(Product product) {
+		return pRepo.updateByCount(product);
 	}
 }

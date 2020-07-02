@@ -21,10 +21,19 @@ create table user (
     phone varchar(50)
 );
 
+create table purchase (
+	id int auto_increment primary key,
+    userid varchar(50),
+    pid int,
+    count int,
+    regdate datetime
+);
+
 set charset utf8;
 alter database marketplace default character set utf8;
 alter table product convert to character set utf8;
 alter table user convert to character set utf8;
+alter table purchase convert to character set utf8;
 set sql_safe_updates=0;
 
 select * from user;

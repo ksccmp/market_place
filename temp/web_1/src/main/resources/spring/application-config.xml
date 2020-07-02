@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+    
+    <!-- 웹과 무관한 빈 스캔 -->
+         <context:component-scan
+            base-package="com.ssafy.model.repository, com.ssafy.model.service"/>
+            
+		<!-- properties 파일 로딩 -->
+		<context:property-placeholder location="classpath:spring/jdbc.properties"/>
+		
+		<!-- DataSource 빈 생성: 이름 고정! -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${jdbc.driver}"></property>
+			<property name="url" value="${jdbc.url}"></property>
+			<property name="username" value="${jdbc.user}"></property>
+			<property name="password" value="${jdbc.password}"></property>
+		</bean>
+		
+		<!-- mybatis와 spring 연결 -->
+		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		  <property name="dataSource" ref="dataSource" /> <!-- 위에 dataSource 참조 -->
+		  <property name="configLocation" value="classpath:spring/mybatis-config.xml"></property>
+		</bean>
+		
+		<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		  <constructor-arg index="0" ref="sqlSessionFactory" /> <!-- 위에 sqlSessionFactory 참조 -->
+		</bean>
+		
+		<!-- Transaction 처리 담당: 이름 고정-transactionManager -->
+		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"></property>
+		</bean>
+		
+		<!-- transaction 처리를 스프링에 맞김 -->
+		<tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

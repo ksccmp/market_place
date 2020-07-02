@@ -7,7 +7,19 @@
 		select * from product where count != 0
 	</select>
 	
+	<select id="selectById" parameterType="int" resultType="product">
+		select * from product where id = #{value}
+	</select>
+	
 	<insert id="insert" parameterType="product">
 		insert into product(image, userid, name, description, price, count, regdate) values (#{image}, #{userid}, #{name}, #{description}, #{price}, #{count}, current_timestamp())
 	</insert>
+	
+	<delete id="delete" parameterType="product">
+		delete from product where id = #{id}
+	</delete>
+	
+	<update id="updateByCount" parameterType="product">
+		update product set count = #{count} where id = #{id}
+	</update>
 </mapper>

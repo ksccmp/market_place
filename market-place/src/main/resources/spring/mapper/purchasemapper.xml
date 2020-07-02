@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="market.place.purchase">
+	<insert id="insert" parameterType="purchase">
+		insert into purchase(userid, pid, count, regdate) values (#{userid}, #{pid}, #{count}, current_timestamp())
+	</insert>
+</mapper>

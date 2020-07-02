@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean: 빈을 정의, id는 빈의 이름 -->
+	<bean id="hp" class="di1.HPPrinter"></bean>
+	<bean id="ss" class="di1.SamsungPrinter"></bean>
+	<bean id="user" class="di1.PrinterUser"> <!-- 기본생성자 사용 --> <!-- 똑같은 빈 id를 사용하면 error -->
+		<!-- property는 setter를 통해서 주입 -->
+		<property name="printer" ref="hp"></property> <!-- setPrinter에서 set때고 소문자로 , ref는 객체참조, value는 숫자 및 문자-->
+	</bean>
+</beans>

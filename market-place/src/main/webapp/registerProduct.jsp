@@ -14,7 +14,7 @@
 		<table>
 			<tr>
 				<td>물품 이미지</td>
-				<td><input type="text" name="image" required="required"></td>
+				<td><input type="text" name="image" required="required" value="default"></td>
 			</tr>
 			
 			<tr>
