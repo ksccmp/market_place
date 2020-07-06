@@ -6,4 +6,8 @@
 	<insert id="insert" parameterType="purchase">
 		insert into purchase(userid, pid, count, regdate) values (#{userid}, #{pid}, #{count}, current_timestamp())
 	</insert>
+	
+	<select id="selectByUserid" parameterType="string" resultType="myproduct">
+		select pu.count count, pu.regdate regdate, p.image image, p.name name, p.description description, p.price price from purchase pu join product p on pu.pid = p.id where pu.userid = #{value}
+	</select>
 </mapper>

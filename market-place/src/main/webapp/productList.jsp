@@ -20,10 +20,17 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<input type="button" value="물품 등록" id="registerProduct">
+	<c:if test="${not empty user }">
+		<input type="button" value="구매 내역" id="myProduct">
+	</c:if>
 	
 	<br>
 	
 	<c:choose>
+		<c:when test="${empty user }">
+			<h1>로그인을 해주세요.</h1>
+		</c:when>
+	
 		<c:when test="${empty productList}">
 			<h1>판매중인 상품이 없습니다.</h1>
 		</c:when>
@@ -121,6 +128,10 @@
 				alert("에러가 발생했습니다.\n", error);
 			}
 		})
+	})
+	
+	$("#myProduct").on("click", function() {
+		window.location.href = "/market-place/myProduct"
 	})
 </script>
 </html>

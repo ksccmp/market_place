@@ -40,15 +40,21 @@
 		
 		<br>
 		
+		<input type="button" value="뒤로 가기" id="back">
 		<input type="submit" value="물품 등록">
 	</form>
 	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	<c:if test="${empty sessionScope.user }">
 		alert("로그인을 해주세요.");
 		history.go(-1);
 	</c:if>
+	
+	$("#back").on("click", function() {
+		history.go(-1);
+	})
 </script>
 </html>

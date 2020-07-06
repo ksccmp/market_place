@@ -38,6 +38,9 @@ set sql_safe_updates=0;
 
 select * from user;
 select * from product;
+select * from purchase;
+
+select * from purchase pu join product p using pu.pid = p.id;
 
 delete from user;
 delete from product;

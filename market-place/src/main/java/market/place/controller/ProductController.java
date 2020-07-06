@@ -43,6 +43,13 @@ public class ProductController {
 		return "registerProduct";
 	}
 	
+	@GetMapping("/myProduct")
+	public String getMyProduct(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("myProducts", puServ.selectByUserid(user.getUserid()));
+		return "myProduct";
+	}
+	
 	@PostMapping("/registerProduct.do")
 	public String postRegisterProduct(Product product, HttpSession session, Model model) {
 		User user = (User)(session.getAttribute("user"));

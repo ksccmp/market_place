@@ -6,8 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#footerdiv {
+		margin: auto;
+		text-align: center;
+		width: 40%;
+	}
+	
+	#name {
+		color: red;
+	}
+	
+	#title {
+		color: navy;
+	}
+</style>
 </head>
 <body>
-	<h1>Footer Page</h1>
+	<div id="footerdiv">
+		<div>
+			<h2 id="title">SC Market Place</h2>
+		</div>
+		
+		<hr/>
+		
+		<div>
+			<h2>Developer : <span id="name">KSC</span> / Operation : <span id="name">KSC</span></h2>
+		</div>
+	</div>
 </body>
 </html>

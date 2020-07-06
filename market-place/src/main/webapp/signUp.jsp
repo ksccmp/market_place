@@ -33,7 +33,14 @@
 		
 		<br>
 		
+		<input type="button" value="뒤로 가기" id="back">
 		<input type="submit" value="회원가입">
 	</form>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$("#back").on("click", function() {
+		history.go(-1);
+	})
+</script>
 </html>
