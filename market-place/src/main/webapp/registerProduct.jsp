@@ -6,43 +6,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#registerProductBody {
+		margin: auto;
+		text-align: center;
+	}
+	
+	#registerProductTable {
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<form action="registerProduct.do" method="post">
-		<table>
-			<tr>
-				<td>물품 이미지</td>
-				<td><input type="text" name="image" required="required" value="default"></td>
-			</tr>
+	<div id="registerProductBody">
+		<form action="registerProduct.do" method="post">
+			<table id="registerProductTable">
+				<tr>
+					<td>물품 이미지</td>
+					<td><input type="text" name="image" required="required" value="default"></td>
+				</tr>
+				
+				<tr>
+					<td>물품 이름</td>
+					<td><input type="text" name="name" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>물품 세부정보</td>
+					<td><input type="text" name="description" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>물품 가격</td>
+					<td><input type="number" name="price" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>물품 갯수</td>
+					<td><input type="number" name="count" required="required"></td>
+				</tr>
+			</table>
 			
-			<tr>
-				<td>물품 이름</td>
-				<td><input type="text" name="name" required="required"></td>
-			</tr>
+			<br>
 			
-			<tr>
-				<td>물품 세부정보</td>
-				<td><input type="text" name="description" required="required"></td>
-			</tr>
-			
-			<tr>
-				<td>물품 가격</td>
-				<td><input type="number" name="price" required="required"></td>
-			</tr>
-			
-			<tr>
-				<td>물품 갯수</td>
-				<td><input type="number" name="count" required="required"></td>
-			</tr>
-		</table>
-		
-		<br>
-		
-		<input type="button" value="뒤로 가기" id="back">
-		<input type="submit" value="물품 등록">
-	</form>
+			<input type="button" value="뒤로 가기" id="back">
+			<input type="submit" value="물품 등록">
+		</form>
+	</div>
 	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>

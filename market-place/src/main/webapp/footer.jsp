@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	#footerdiv {
+	#footerbody {
 		margin: auto;
 		text-align: center;
 		width: 40%;
@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-	<div id="footerdiv">
+	<div id="footerbody">
 		<div>
 			<h2 id="title">SC Market Place</h2>
 		</div>

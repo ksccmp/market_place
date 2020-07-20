@@ -6,30 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#headerBody {
+		margin: auto;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
-
-	<c:choose>
-		<c:when test="${empty sessionScope.user }">
-			<form action="login.do" method="post">
-				<span>ID</span>
-				<span><input type="text" name="userid"></span>
-				<span>Password</span>
-				<span><input type="password" name="password"></span>
-				<input type="submit" value="로그인">
-				<input type="button" value="회원가입" id="signup">
-			</form>
-		</c:when>
+	<div id="headerBody">
+		<c:choose>
+			<c:when test="${empty sessionScope.user }">
+				<form action="login.do" method="post">
+					<span>ID</span>
+					<span><input type="text" name="userid"></span>
+					<span>Password</span>
+					<span><input type="password" name="password"></span>
+					<input type="submit" value="로그인">
+					<input type="button" value="회원가입" id="signup">
+				</form>
+			</c:when>
+			
+			<c:otherwise>
+				<form action="logout.do" method="post">
+					<span>안녕하세요. ${user.userid }님</span>
+					<input type="submit" value="로그아웃">
+				</form>
+			</c:otherwise>
+		</c:choose>
 		
-		<c:otherwise>
-			<form action="logout.do" method="post">
-				<span>안녕하세요. ${user.userid }님</span>
-				<input type="submit" value="로그아웃">
-			</form>
-		</c:otherwise>
-	</c:choose>
-	
-	<br><br>
+		<br><br>
+	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

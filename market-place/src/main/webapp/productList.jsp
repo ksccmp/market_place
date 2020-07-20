@@ -9,69 +9,78 @@
 <style type="text/css">
 	#productTable {
 		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	#firstTd {
 		padding: 5px 10px;
+	}
+	
+	#productBody {
+		margin: auto;
+		text-align: center;
 	}
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<input type="button" value="물품 등록" id="registerProduct">
-	<c:if test="${not empty user }">
-		<input type="button" value="구매 내역" id="myProduct">
-	</c:if>
-	
-	<br>
-	
-	<c:choose>
-		<c:when test="${empty user }">
-			<h1>로그인을 해주세요.</h1>
-		</c:when>
-	
-		<c:when test="${empty productList}">
-			<h1>판매중인 상품이 없습니다.</h1>
-		</c:when>
+	<div id="productBody">
+		<input type="button" value="물품 등록" id="registerProduct">
+		<c:if test="${not empty user }">
+			<input type="button" value="구매 내역" id="myProduct">
+		</c:if>
 		
-		<c:otherwise>
-			<table border="1" id="productTable">
-			<tr>
-				<td id="firstTd">등록자</td>
-				<td>제품이름</td>
-				<td>제품설명</td>
-				<td>가격</td>
-				<td>남은 갯수</td>
-				<td>등록날짜</td>
-				<td>구매 갯수</td>
-				<td>기타</td>
-			</tr>
+		<br>
+		
+		<c:choose>
+			<c:when test="${empty user }">
+				<h1>로그인을 해주세요.</h1>
+			</c:when>
+		
+			<c:when test="${empty productList}">
+				<h1>판매중인 상품이 없습니다.</h1>
+			</c:when>
 			
-			<c:forEach items="${productList }" var="product">
+			<c:otherwise>
+				<table border="1" id="productTable">
 				<tr>
-					<td id="userid" productId="${product.id }">${product.userid }</td>
-					<td>${product.name }</td>
-					<td>${product.description }</td>
-					<td>${product.price }원</td>
-					<td>${product.count }개</td>
-					<td>${product.regdate }</td>
-					<c:choose>
-						<c:when test="${user.userid eq product.userid }">
-							<td>-</td>
-							<td><input type="button" value="삭제" class="delete"></td>
-						</c:when>
-						
-						<c:otherwise>
-							<td id="purchase"><input type="number" id="count" min="1" value="1"></td>
-							<td><input type="button" value="구매" class="sales"></td>
-						</c:otherwise>
-					</c:choose>
+					<td id="firstTd">등록자</td>
+					<td>제품이름</td>
+					<td>제품설명</td>
+					<td>가격</td>
+					<td>남은 갯수</td>
+					<td>등록날짜</td>
+					<td>구매 갯수</td>
+					<td>기타</td>
 				</tr>
-			</c:forEach>
-		</table>
-		</c:otherwise>
-	</c:choose>
+				
+				<c:forEach items="${productList }" var="product">
+					<tr>
+						<td id="userid" productId="${product.id }">${product.userid }</td>
+						<td>${product.name }</td>
+						<td>${product.description }</td>
+						<td>${product.price }원</td>
+						<td>${product.count }개</td>
+						<td>${product.regdate }</td>
+						<c:choose>
+							<c:when test="${user.userid eq product.userid }">
+								<td>-</td>
+								<td><input type="button" value="삭제" class="delete"></td>
+							</c:when>
+							
+							<c:otherwise>
+								<td id="purchase"><input type="number" id="count" min="1" value="1"></td>
+								<td><input type="button" value="구매" class="sales"></td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+				</c:forEach>
+			</table>
+			</c:otherwise>
+		</c:choose>
+	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
